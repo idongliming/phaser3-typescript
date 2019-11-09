@@ -7,7 +7,7 @@
 import "phaser";
 import { MainScene } from "./scenes/mainScene";
 
-// main game configuration
+// 主要（全局）游戏配置
 const config: Phaser.Types.Core.GameConfig = {
   width: 800,
   height: 600,
@@ -22,14 +22,14 @@ const config: Phaser.Types.Core.GameConfig = {
   }
 };
 
-// game class
+// 游戏类
 export class Game extends Phaser.Game {
   constructor(config: Phaser.Types.Core.GameConfig) {
     super(config);
   }
 }
 
-// when the page is loaded, create our game instance
+// 当游戏加载，创建我们的游戏实例
 window.addEventListener("load", () => {
   var game = new Game(config);
 });
