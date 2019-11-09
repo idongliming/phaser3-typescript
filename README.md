@@ -8,12 +8,12 @@
 
 <div align="center">
 
-  ![Dependencies](https://img.shields.io/david/digitsensitive/phaser3-typescript.svg)
-  ![GitHub issues](https://img.shields.io/github/issues/digitsensitive/phaser3-typescript.svg)
-  ![GitHub stars](https://img.shields.io/github/stars/digitsensitive/phaser3-typescript.svg)
+  ![Dependencies](https://img.shields.io/david/idongliming/phaser3-typescript.svg)
+  ![GitHub issues](https://img.shields.io/github/issues/idongliming/phaser3-typescript.svg)
+  ![GitHub stars](https://img.shields.io/github/stars/idongliming/phaser3-typescript.svg)
   ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
   ![Code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
-  ![GitHub licence](https://img.shields.io/github/license/digitsensitive/phaser3-typescript.svg)
+  ![GitHub licence](https://img.shields.io/github/license/idongliming/phaser3-typescript.svg)
 
 </div>
 
@@ -94,7 +94,7 @@ npm run dev
 
 ## 备忘录
 
-- [查看备忘录](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets)
+- [查看备忘录](https://github.com/idongliming/phaser3-typescript/blob/master/cheatsheets)
 
 
 ## 外部资源
