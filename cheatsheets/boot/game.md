@@ -1,25 +1,24 @@
 ## Phaser.Game
 
-In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
+有任何疑问访问 [官方源代码](https://github.com/photonstorm/phaser) 。
 
-### Introduction
+### 介绍
 
-The `Phaser.Game` instance controls the entire game.
-It parses the [configuration values](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/config.md),
-handles the boot process, creates the renderer,
-sets up all the global [phaser systems](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene/systems.md),
-starts the scene manager and begins the main game loop.
+ `Phaser.Game` 实例化游戏。
+配置方式请阅读 [configuration values](https://github.com/idongliming/phaser3-typescript/blob/master/cheatsheets/boot/config.md),
+处理启动过程，创建渲染器，
+建立全局 [phaser systems](https://github.com/idongliming/phaser3-typescript/blob/master/cheatsheets/scene/systems.md),
+场景管理和游戏主循环
 
-> You should generally avoid accessing any of the systems created by Game,
-and instead use those made available to you via the Phaser.Scene class
+> 通常，应该避免访问由Game创建的任何系统，而是使用通过Phaser.Scene类提供的方法访问
 
-### Public Functions
+### 公共的方法（函数）
 
 #### resize
-Call this function to update the game width and height.
-It will resize renderer and input manager scale.
+调用此函数以更新游戏的宽度和高度。
+它将调整渲染器和输入管理器比例的大小。
 
-A possible usage would be to call that function as follows in the `game.ts`:
+一种可能的用法是按如下方式调用该函数： `game.ts`:
 
 ```
 window.addEventListener('resize', () => {
@@ -29,15 +28,15 @@ window.addEventListener('resize', () => {
 
 
 #### getFrame
-Get the current frame.
+获取当前帧
 
 #### getTime
-Get the current game timestamp.
+获取当前游戏时间
 
 #### destroy
-Will destroy the game instance on the next frame.
+将会在下一帧销毁游戏实例
 
-> Set `noReturn` to `true` if you do not want to run Phaser again, so it will free-up
-memory being held by the core Phaser plugins.
+> 设置 `noReturn` 为 `true` 如果您不想再次运行Phaser，则它将释放
+Phaser使用的内存。
 
-> Set `removeCanvas` to `true` to remove the parent canvas element from DOM.
+> 设置 `removeCanvas` 为 `true` 从DOM中移除phaser的父 canvas 实体（DOM标签）

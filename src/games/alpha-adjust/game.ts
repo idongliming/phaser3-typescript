@@ -9,8 +9,8 @@ import "phaser";
 import { GameScene } from "./scenes/game-scene";
 
 const config: Phaser.Types.Core.GameConfig = {
-  title: "Alpha Adjust",
-  url: "https://github.com/digitsensitive/phaser3-typescript",
+  title: "透明度调节",
+  url: "https://github.com/idongliming/phaser3-typescript",
   version: "1.0",
   width: 800,
   height: 600,

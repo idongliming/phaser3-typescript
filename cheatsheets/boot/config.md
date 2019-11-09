@@ -1,20 +1,20 @@
 ## Phaser.Config
 
-In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
+有任何疑问访问 [官方源代码](https://github.com/photonstorm/phaser) 。
 
-### Introduction
+### 介绍
 
-The configuration object for your Phaser game instance.
-With this configuration object you can set many parameters of your game.
+Phaser游戏实例的配置对象。
+使用此配置对象，可以设置游戏的许多参数。
 
-### Example
+### 栗子🌰
 
-For the sake of completeness, this example shows all the parameters.
-Most of the parameters you will not need to set.
+为了完整起见，此示例显示了所有参数。
+一般无需设置大多数参数。
 
-> The commented parameters do not work with the current TS Def file
+> 被注释的参数不适用于当前的TS Def文件（custom.d.ts）
 
-```
+``` typescript
 const config: GameConfig = {
   title: "",
   url: "https://phaser.io",

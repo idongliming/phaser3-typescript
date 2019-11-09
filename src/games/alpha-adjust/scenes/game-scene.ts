@@ -32,7 +32,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   create(): void {
-    // create game objects
+    // 创建游戏对象
     this.cloneCrystal = new CloneCrystal({
       scene: this,
       x: this.sys.canvas.width / 2 - 150,
