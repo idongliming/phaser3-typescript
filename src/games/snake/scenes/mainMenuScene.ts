@@ -18,10 +18,12 @@ export class MainMenuScene extends Phaser.Scene {
   }
 
   init(): void {
+    // 监听S键
     this.startKey = this.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.S
     );
 
+    // 如果当前分数超过最高分则更新最高分
     if (CONST.SCORE > CONST.HIGHSCORE) {
       CONST.HIGHSCORE = CONST.SCORE;
     }
@@ -37,6 +39,7 @@ export class MainMenuScene extends Phaser.Scene {
   }
 
   create(): void {
+    // 使用位图字体写文字，提示用户如何开始游戏
     this.bitmapTexts.push(
       this.add.bitmapText(
         this.sys.canvas.width / 2 - 28,
@@ -47,6 +50,7 @@ export class MainMenuScene extends Phaser.Scene {
       )
     );
 
+    // 使用位图字体写文字，提示用户如何控制🐍
     this.bitmapTexts.push(
       this.add.bitmapText(
         this.sys.canvas.width / 2 - 70,
@@ -57,6 +61,7 @@ export class MainMenuScene extends Phaser.Scene {
       )
     );
 
+    //显示最高分
     this.bitmapTexts.push(
       this.add.bitmapText(
         this.sys.canvas.width / 2 - 45,

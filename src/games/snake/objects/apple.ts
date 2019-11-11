@@ -16,7 +16,7 @@ export class Apple extends Phaser.GameObjects.Graphics {
   }
 
   /**
-   * Randomly generate new apple position on the field
+   * 随机生成新的食物（apple）
    * @param _rndX [Random X Position]
    * @param _rndY [Random Y Position]
    */

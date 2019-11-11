@@ -20,12 +20,12 @@ export class GameScene extends Phaser.Scene {
   private verticalFields: number;
   private tick: number;
 
-  // objects
+  // 游戏对象，食物，蛇，边框
   private player: Snake;
   private apple: Apple;
   private gameBorder: Phaser.GameObjects.Graphics[];
 
-  // texts
+  // 文本
   private scoreText: Phaser.GameObjects.BitmapText;
 
   constructor() {
@@ -46,7 +46,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   create(): void {
-    // objects
+    // 画边框
     this.gameBorder = [];
     let i = 0;
     for (let x = 0; x < this.gameWidth / this.fieldSize; x++) {
@@ -81,7 +81,7 @@ export class GameScene extends Phaser.Scene {
       fSize: this.fieldSize
     });
 
-    // text
+    // 显示分数 文字
     this.scoreText = this.add.bitmapText(
       this.gameWidth / 2,
       1,
@@ -110,7 +110,7 @@ export class GameScene extends Phaser.Scene {
   private checkCollision(): void {
     const { x: headX, y: headY } = this.player.getHead();
 
-    // player vs. apple collision
+    // 蛇和食物（apple）碰撞检测
     if (headX === this.apple.x && headY === this.apple.y) {
       this.player.growSnake(this);
       CONST.SCORE++;
@@ -118,23 +118,25 @@ export class GameScene extends Phaser.Scene {
       this.apple.newApplePosition(this.rndXPos(), this.rndYPos());
     }
 
-    // border vs. snake collision
+    // 边框和蛇碰撞检测
     for (const { x, y } of this.gameBorder) {
       if (headX === x && headY === y) {
         this.player.setDead(true);
       }
     }
 
-    // snake vs. snake collision
+    // 蛇和自己身体碰撞检测
     this.player.checkSnakeSnakeCollision();
   }
 
+  // 产生横坐标随机位置
   private rndXPos(): number {
     return (
       Phaser.Math.RND.between(1, this.horizontalFields - 1) * this.fieldSize
     );
   }
 
+  // 产生纵坐标随机位置
   private rndYPos(): number {
     return Phaser.Math.RND.between(1, this.verticalFields - 1) * this.fieldSize;
   }

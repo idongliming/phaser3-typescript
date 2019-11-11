@@ -13,6 +13,7 @@ export class BootScene extends Phaser.Scene {
   }
 
   update(): void {
+    // 进入主界面（游戏欢迎页面）
     this.scene.start("MainMenuScene");
   }
 }

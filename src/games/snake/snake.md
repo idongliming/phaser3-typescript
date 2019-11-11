@@ -1,24 +1,23 @@
-# Snake ![Difficulty](https://img.shields.io/badge/Difficulty-Beginner-green.svg)
+# 贪吃蛇 ![Difficulty](https://img.shields.io/badge/Difficulty-Beginner-green.svg)
 
 ![Snake](assets/github/snake.png)
 
-## Description
+## 描述
 
-In October 1976 Gremlin published a 2-player Maze Game called Blockade.
-It is the first of what would become known as snake games.
+1976年10月，Gremlin发行了一款名为Blockade的2人迷宫游戏。后来变成了家喻户晓的贪吃蛇
 
-We are going to create a simple 1-player Snake clone.
+我们将做一个简单的单人贪吃蛇的复刻
 
-## How to run it
+## 如何运行
 
-Adjust the `webpack.config.js` file as follows:
+像这样更改 `webpack.config.js` 文件:
 > `entry: './src/games/snake/game.ts'`
 
-## Learn to use
+## 用到的phaser技术
 
-* [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/game.md)
-* [Phaser.Config](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/config.md)
-* [Phaser.Scenes.ScenePlugin](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene/plugins/scene-plugin.md)
+* [Phaser.Game](https://github.com/idongliming/phaser3-typescript/blob/master/cheatsheets/boot/game.md)
+* [Phaser.Config](https://github.com/idongliming/phaser3-typescript/blob/master/cheatsheets/boot/config.md)
+* [Phaser.Scenes.ScenePlugin](https://github.com/idongliming/phaser3-typescript/blob/master/cheatsheets/scene/plugins/scene-plugin.md)
 * Create two classes (player and apple) in two separate files
 * Phaser.GameObjects.Graphics
 * Basic collision detection
