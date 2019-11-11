@@ -18,6 +18,10 @@ export class MainScene extends Phaser.Scene {
   }
 
   create(): void {
-    this.phaserSprite = this.add.sprite(400, 300, "logo");
+    // 受重力和反弹
+    let logo = this.physics.add.image(400,100,"logo")
+    logo.setVelocity(100,200);
+    logo.setBounce(1,1);
+    logo.setCollideWorldBounds(true);
   }
 }
