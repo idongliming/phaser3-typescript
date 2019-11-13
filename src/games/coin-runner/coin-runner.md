@@ -1,33 +1,28 @@
-# Coin Runner ![Difficulty](https://img.shields.io/badge/Difficulty-Beginner-green.svg)
+# 收集金币 ![Difficulty](https://img.shields.io/badge/Difficulty-Beginner-green.svg)
 
 ![Coin Runner](assets/github/coinRunner.png)
 
-## Description
+## 描述
 
-A very simple game to learn the basics of Phaser 3.
+用来学习 Phaser 3 的一个简单游戏，键盘移动游戏角色吃金币
 
-## Learning objectives
+## 学习 objectives
 
-You will learn how to create and initialize the core class Phaser.Game and
-if you have a deeper look into the GameConfig object you will see all the
-parameters you can choose when setting-up your Phaser.Game Instance (see further reading).
+你会学习如何创建和实例化 Phaser 的核心类 Phaser.Game 如果想深入学习可以学习 GameConfig 对象 ，
+查看扩展阅读了解所有的配置信息
 
-Next you will create your first Phaser.Scene and load up your game objects from
-separate files. Each object in this game will be of type Phaser.GameObjects.Image.
-You will learn everything about Phaser.GameObjects.Image and
-what variables you can set. We will make your life easier for now and not work
-with physic objects.
+接下来你会创建第一个 Phaser.Scene 并且从一个独立的文件加载游戏对象. 这个游戏中的所有游戏对象都是 Phaser.GameObjects.Image 类型，即图片
+你将学习Phaser.GameObjects.Image和设置一些变量。
 
-Last but not least you will setup the player input, use a TimerEvent, a Text
-and even check for RectangleToRectangle collision.
+最后但并非最不重要的是，你将设置游戏角色的输入，使用TimerEvent，Text 和一个矩形碰撞检测
 
-## How to run it
+## 如何运行
 
-Adjust the entry path in the `webpack.config.js` file as follows:
+像这样更改 `webpack.config.js` 文件:
 ```
 entry: './src/games/coin-runner/game.ts'
 ```
 
-## Further reading
+## 扩展阅读
 
 * [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/game.md)
