@@ -35,17 +35,20 @@ export class GameScene extends Phaser.Scene {
   }
 
   create(): void {
-    // create background
+    // 创建背景
     this.background = this.add.image(0, 0, "background");
+    // 设置原点
     this.background.setOrigin(0, 0);
 
-    // create objects
+    // 创建游戏对象
+    // 随机产生金币
     this.coin = new Coin({
       scene: this,
       x: Phaser.Math.RND.integerInRange(100, 700),
       y: Phaser.Math.RND.integerInRange(100, 500),
       key: "coin"
     });
+    // 创建游戏角色
     this.player = new Player({
       scene: this,
       x: this.sys.canvas.width / 2,
@@ -53,7 +56,7 @@ export class GameScene extends Phaser.Scene {
       key: "player"
     });
 
-    // create texts
+    // 创建文本，用来显示吃到的金币数
     this.coinsCollectedText = this.add.text(
       this.sys.canvas.width / 2,
       this.sys.canvas.height - 50,
@@ -69,12 +72,13 @@ export class GameScene extends Phaser.Scene {
   }
 
   update(): void {
-    // update objects
+    // 更新游戏对象，角色和金币
     this.player.update();
     this.coin.update();
 
-    // do the collision check
+    // 碰撞检测
     if (
+      // 矩形和矩形几何相交
       Phaser.Geom.Intersects.RectangleToRectangle(
         this.player.getBounds(),
         this.coin.getBounds()
@@ -84,6 +88,8 @@ export class GameScene extends Phaser.Scene {
     }
   }
 
+  // 更新金币状态
+  // 收集到的金币数量加一，更新显示的文本，改变金币的位置
   private updateCoinStatus(): void {
     this.collectedCoins++;
     this.coinsCollectedText.setText(this.collectedCoins + "");
