@@ -10,7 +10,7 @@ import { GameScene } from "./scenes/game-scene";
 
 const config: Phaser.Types.Core.GameConfig = {
   title: "Coin Runner",
-  url: "https://github.com/digitsensitive/phaser3-typescript",
+  url: "https://github.com/idnogliming/phaser3-typescript",
   version: "1.1.1",
   width: 768,
   height: 576,
