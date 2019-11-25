@@ -1,5 +1,3 @@
-import { Physics } from "phaser";
-
 /**
  * @author       idonglimig <idongliming@qq.com>
  * @copyright    2019 - 2020 idongliming
@@ -7,9 +5,6 @@ import { Physics } from "phaser";
  */
 
 export class MainScene extends Phaser.Scene {
-  private sky: Phaser.GameObjects.Image;
-  private gound: Phaser.GameObjects.Sprite;
-  private star: Phaser.GameObjects.Sprite;
   private stars: Phaser.GameObjects.Group;
   private platforms: Phaser.GameObjects.Group;
   private player: Phaser.Physics.Arcade.Sprite;
@@ -31,7 +26,7 @@ export class MainScene extends Phaser.Scene {
 
   create(): void {
     // 创建天空
-    this.sky = this.add.image(400,300,"sky")
+    this.add.image(400,300,"sky")
     // 创建游戏角色
     this.player = this.physics.add.sprite(100,450, "dude")
     // 给游戏角色加动画
@@ -64,21 +59,28 @@ export class MainScene extends Phaser.Scene {
 
     this.stars = this.physics.add.group();
     for (let index = 1; index < 13; index++) {
-      this.star=this.stars.create(index * 60, 0, 'star')
-      this.star.body.bounce.y = 0.7 + Math.random() * 0.2;
+      let star: Phaser.Physics.Arcade.Sprite =  this.stars.create(index * 60, 0, 'star')
+      star.body.bounce.y = 0.7 + Math.random() * 0.2;
     }
     // 设置游戏角色的弹性
     this.player.setBounce(0.2);
     // 和游戏边缘，平台 都有碰撞检测
     this.player.setCollideWorldBounds(true)
     this.physics.add.collider(this.player, this.platforms);
-    // this.physics.add.collider(this.player,this.stars);
+    
     this.physics.add.overlap(this.player,this.stars,this.collectStar,null,null);
     this.physics.add.collider(this.stars,this.platforms);
     this.cursorKeys = this.input.keyboard.createCursorKeys();
   }
 
   update(){
+    // 角色添加阻力
+    if (this.player.body.touching.down) {
+      this.player.setDragX(200);
+    } else {
+      this.player.setDragX(20);
+    }
+    // 按键控制
     if (this.cursorKeys.left.isDown) {
       this.player.play("left", true);
       this.player.setVelocityX(-150);
@@ -87,14 +89,12 @@ export class MainScene extends Phaser.Scene {
       this.player.setVelocityX(150)
     } else if (this.cursorKeys.up.isDown && this.player.body.touching.down) {
       this.player.setVelocityY(-350)
-      this.player.play("center",true)
-    } else {
-      this.player.setVelocityX(0);
+    } else if(this.player.body.velocity.x == 0){
       this.player.play("center",true)
     }
   }
-
-  collectStar(player, star:Phaser.GameObjects.Sprite) {
-    star.setVisible(false)
+  // 收集星星的回调函数
+  collectStar(player: Phaser.Physics.Arcade.Sprite, star: Phaser.Physics.Arcade.Sprite) {
+    star.disableBody(true,true);
   }
 }
