@@ -16,11 +16,11 @@ export class BootScene extends Phaser.Scene {
   }
 
   preload(): void {
-    // set the background and create loading bar
+    //设置背景并创建加载栏
     this.cameras.main.setBackgroundColor(0x98d687);
     this.createLoadingbar();
 
-    // pass value to change the loading bar fill
+    // 传递值以更改加载栏的填充
     this.load.on(
       "progress",
       function(value) {
@@ -36,7 +36,7 @@ export class BootScene extends Phaser.Scene {
       this
     );
 
-    // delete bar graphics, when loading complete
+    // 删除栏图形，当加载完成
     this.load.on(
       "complete",
       function() {
@@ -46,7 +46,7 @@ export class BootScene extends Phaser.Scene {
       this
     );
 
-    // load out package
+    //加载了包
     this.load.pack(
       "preload",
       "./src/games/flappy-bird/assets/pack.json",

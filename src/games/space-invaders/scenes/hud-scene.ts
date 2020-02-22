@@ -19,7 +19,7 @@ export class HUDScene extends Phaser.Scene {
   }
 
   create(): void {
-    // create bitmap texts
+    // 创建位图文本
     this.bitmapTexts.push(
       this.add.bitmapText(
         10,
@@ -39,7 +39,7 @@ export class HUDScene extends Phaser.Scene {
       )
     );
 
-    // create events
+    // 创建事件
     const level = this.scene.get("GameScene");
     level.events.on("pointsChanged", this.updatePoints, this);
     level.events.on("livesChanged", this.updateLives, this);

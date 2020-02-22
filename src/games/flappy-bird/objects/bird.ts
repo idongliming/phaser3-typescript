@@ -21,20 +21,20 @@ export class Bird extends Phaser.GameObjects.Image {
   constructor(params) {
     super(params.scene, params.x, params.y, params.key, params.frame);
 
-    // image
+    // 图片
     this.setScale(3);
     this.setOrigin(0, 0);
 
-    // variables
+    // 变量
     this.isDead = false;
     this.isFlapping = false;
 
-    // physics
+    // 物理
     this.scene.physics.world.enable(this);
     this.body.setGravityY(1000);
     this.body.setSize(17, 12);
 
-    // input
+    // 输入
     this.jumpKey = this.scene.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.SPACE
     );
@@ -43,12 +43,12 @@ export class Bird extends Phaser.GameObjects.Image {
   }
 
   update(): void {
-    // handle angle change
+    //处理角变化
     if (this.angle < 30) {
       this.angle += 2;
     }
 
-    // handle input
+    // 处理输入
     if (this.jumpKey.isDown && !this.isFlapping) {
       this.isFlapping = true;
       this.body.setVelocityY(-350);
@@ -62,7 +62,7 @@ export class Bird extends Phaser.GameObjects.Image {
       this.isFlapping = false;
     }
 
-    // check if off the screen
+    // 检查是否离开屏幕
     if (this.y + this.height > this.scene.sys.canvas.height) {
       this.isDead = true;
     }

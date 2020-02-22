@@ -22,7 +22,7 @@ export class MainMenuScene extends Phaser.Scene {
       Phaser.Input.Keyboard.KeyCodes.S
     );
 
-    // reset score, highscore and player lives
+    // 重置分数，高分数和玩家生命
     if (CONST.SCORE > CONST.HIGHSCORE) {
       CONST.HIGHSCORE = CONST.SCORE;
     }

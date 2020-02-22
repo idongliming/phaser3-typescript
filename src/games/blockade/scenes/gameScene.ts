@@ -11,7 +11,7 @@ import { Wall } from "../objects/wall";
 import { CONST } from "../const/const";
 
 export class GameScene extends Phaser.Scene {
-  // field and game setting
+  // 场地和游戏设置
   private gameHeight: number;
   private gameWidth: number;
   private boardWidth: number;
@@ -20,12 +20,12 @@ export class GameScene extends Phaser.Scene {
   private verticalFields: number;
   private tick: number;
 
-  // objects
+  // 对象
   private player: Player;
   private playerTwo: PlayerTwo;
   private gameBorder: Phaser.GameObjects.Image[];
 
-  // texts
+  // 文本
   private scoreText: Phaser.GameObjects.BitmapText;
 
   constructor() {
@@ -57,11 +57,11 @@ export class GameScene extends Phaser.Scene {
   }
 
   create(): void {
-    // objects
+    //对象
     this.player = new Player(this, 12, 12, "right");
     this.playerTwo = new PlayerTwo(this, 244, 212, "left");
 
-    // TODO: Replace with Group and Action
+    //TODO:用小组和行动代替
     this.gameBorder = [];
     let i = 0;
     for (let x = 0; x < this.gameWidth / CONST.FIELD_SIZE; x++) {
@@ -83,7 +83,7 @@ export class GameScene extends Phaser.Scene {
       }
     }
 
-    // texts
+    // 文本
     this.scoreText = this.add.bitmapText(
       this.gameWidth / 2 - 20,
       0,
@@ -129,7 +129,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   private checkCollision(): void {
-    // border <-> snake collision
+    //边界<->蛇碰撞
     for (let i = 0; i < this.gameBorder.length; i++) {
       if (
         this.player.getHead().x === this.gameBorder[i].x &&
@@ -146,7 +146,7 @@ export class GameScene extends Phaser.Scene {
       }
     }
 
-    // check snake <-> snake collision
+    // 检查蛇<->蛇碰撞
     let playerOneBody = this.player.getBody();
     let bodiesMerged = playerOneBody.concat(this.playerTwo.getBody());
 

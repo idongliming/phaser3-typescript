@@ -26,20 +26,20 @@ export class Ship extends Phaser.GameObjects.Graphics {
   constructor(params) {
     super(params.scene, params.opt);
 
-    // variables
+    //变量
     this.bullets = [];
     this.isShooting = false;
 
-    // init ship
+    // 初始化ship
     this.initShip();
 
-    // input
+    // 输入
     this.cursors = this.scene.input.keyboard.createCursorKeys();
     this.shootKey = this.scene.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.SPACE
     );
 
-    // physics
+    // 物理
     this.scene.physics.world.enable(this);
     this.body.allowGravity = false;
     this.body.setSize(CONST.SHIP_SIZE * 2, CONST.SHIP_SIZE * 2);
@@ -49,12 +49,12 @@ export class Ship extends Phaser.GameObjects.Graphics {
   }
 
   private initShip(): void {
-    // define ship properties
+    //定义船舶属性
     this.x = this.scene.sys.canvas.width / 2;
     this.y = this.scene.sys.canvas.height / 2;
     this.velocity = new Phaser.Math.Vector2(0, 0);
 
-    // define ship graphics and draw it
+    // 定义船舶图形并绘制它
     this.lineStyle(1, 0xffffff);
 
     this.strokeTriangle(
@@ -100,34 +100,34 @@ export class Ship extends Phaser.GameObjects.Graphics {
   }
 
   private boost(): void {
-    // create the force in the correct direction
+    //在正确的方向上创造力量
     let force = new Phaser.Math.Vector2(
       Math.cos(this.rotation - Math.PI / 2),
       Math.sin(this.rotation - Math.PI / 2)
     );
 
-    // reduce the force and apply it to the velocity
+    // 减小力，使它作用于速度
     force.scale(0.12);
     this.velocity.add(force);
   }
   private applyForces(): void {
-    // apple velocity to position
+    // 苹果定位速度
     this.x += this.velocity.x;
     this.y += this.velocity.y;
 
-    // reduce the velocity
+    // 减少速度
     this.velocity.scale(0.98);
   }
 
   private checkIfOffScreen(): void {
-    // horizontal check
+    // 水平的检查
     if (this.x > this.scene.sys.canvas.width + CONST.SHIP_SIZE) {
       this.x = -CONST.SHIP_SIZE;
     } else if (this.x < -CONST.SHIP_SIZE) {
       this.x = this.scene.sys.canvas.width + CONST.SHIP_SIZE;
     }
 
-    // vertical check
+    // 垂直的检查
     if (this.y > this.scene.sys.canvas.height + CONST.SHIP_SIZE) {
       this.y = -CONST.SHIP_SIZE;
     } else if (this.y < -CONST.SHIP_SIZE) {
@@ -146,13 +146,13 @@ export class Ship extends Phaser.GameObjects.Graphics {
   }
 
   private recoil(): void {
-    // create the force in the correct direction
+    //在正确的方向上创造力量
     let force = new Phaser.Math.Vector2(
       -Math.cos(this.rotation - Math.PI / 2),
       -Math.sin(this.rotation - Math.PI / 2)
     );
 
-    // reduce the force and apply it to the velocity
+    // 减小力，使它作用于速度
     force.scale(0.2);
     this.velocity.add(force);
   }

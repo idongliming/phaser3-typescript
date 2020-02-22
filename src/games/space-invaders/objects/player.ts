@@ -91,12 +91,12 @@ export class Player extends Phaser.GameObjects.Image {
   }
 
   public gotHurt() {
-    // update lives
+    //更新生命
     let currentLives = this.scene.registry.get("lives");
     this.scene.registry.set("lives", currentLives - 1);
     this.scene.events.emit("livesChanged");
 
-    // reset position
+    // 复位位置
     this.x = this.scene.sys.canvas.width / 2;
     this.y = this.scene.sys.canvas.height - 40;
   }

@@ -18,7 +18,7 @@ export class Bullet extends Phaser.GameObjects.Graphics {
   constructor(scene, params) {
     super(scene, params);
 
-    // variables
+    // 变量
     this.colors = [];
     this.colors.push(0x3ae0c4);
     this.colors.push(0x39e066);
@@ -28,7 +28,7 @@ export class Bullet extends Phaser.GameObjects.Graphics {
     this.lifeSpan = 100;
     this.isOffScreen = false;
 
-    // init bullet
+    // 初始化子弹
     this.x = params.x;
     this.y = params.y;
     this.velocity = new Phaser.Math.Vector2(
@@ -36,11 +36,11 @@ export class Bullet extends Phaser.GameObjects.Graphics {
       15 * Math.sin(params.rotation - Math.PI / 2)
     );
 
-    // define bullet graphics and draw it
+    // 定义子弹图形并绘制它
     this.fillStyle(this.selectedColor, 1);
     this.fillCircle(0, 0, 3);
 
-    // physics
+    // 物理
     this.scene.physics.world.enable(this);
     this.body.allowGravity = false;
     this.body.setCircle(3);
@@ -49,7 +49,7 @@ export class Bullet extends Phaser.GameObjects.Graphics {
   }
 
   update(): void {
-    // apple velocity to position
+    //苹果定位速度
     this.x += this.velocity.x;
     this.y += this.velocity.y;
 

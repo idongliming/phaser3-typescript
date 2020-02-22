@@ -87,14 +87,14 @@ export class GameScene extends Phaser.Scene {
   }
 
   private addNewRowOfPipes(): void {
-    // update the score
+    //更新分数
     this.registry.values.score += 1;
     this.scoreText.setText(this.registry.values.score);
 
-    // randomly pick a number between 1 and 5
+    //在1和5之间随机选择一个数字
     let hole = Math.floor(Math.random() * 5) + 1;
 
-    // add 6 pipes with one big hole at position hole and hole + 1
+    //在孔位置加6根大孔，孔+ 1
     for (let i = 0; i < 10; i++) {
       if (i !== hole && i !== hole + 1 && i !== hole + 2) {
         if (i === hole - 1) {
@@ -109,7 +109,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   private addPipe(x, y, frame): void {
-    // create a new pipe at the position x and y and add it to group
+    // 在x和y位置创建一个新管道并将其添加到组中
     this.pipes.add(
       new Pipe({
         scene: this,

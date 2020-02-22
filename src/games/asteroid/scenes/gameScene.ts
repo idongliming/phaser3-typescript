@@ -46,7 +46,7 @@ export class GameScene extends Phaser.Scene {
   update(): void {
     this.player.update();
 
-    // check collision between asteroids and bullets
+    //检查小行星和子弹之间的碰撞
     for (let i = 0; i < this.asteroids.length; i++) {
       for (let bullet of this.player.getBullets()) {
         if (
@@ -74,7 +74,7 @@ export class GameScene extends Phaser.Scene {
       }
     }
 
-    // check collision between asteroids and ship
+    //检查小行星和飞船的碰撞
     for (let i = 0; i < this.asteroids.length; i++) {
       if (
         Phaser.Geom.Intersects.RectangleToRectangle(
@@ -87,7 +87,7 @@ export class GameScene extends Phaser.Scene {
       }
     }
 
-    // if player got hit
+    //如果玩家被击中
     if (this.gotHit) {
       CONST.LIVES--;
 

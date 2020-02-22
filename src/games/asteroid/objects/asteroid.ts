@@ -24,15 +24,15 @@ export class Asteroid extends Phaser.GameObjects.Graphics {
   constructor(params) {
     super(params.scene, params);
 
-    // variables
+    // 变量
     this.numberOfSides = 12;
     this.asteroidRadius = 0;
     this.sizeOfAsteroid = params.size;
 
-    // init ship
+    // 初始化ship
     this.initAsteroid(params.x, params.y, this.sizeOfAsteroid);
 
-    // physics
+    // 物理
     this.scene.physics.world.enable(this);
     this.body.allowGravity = false;
     this.body.setCircle(this.asteroidRadius);
@@ -113,11 +113,11 @@ export class Asteroid extends Phaser.GameObjects.Graphics {
   }
 
   private applyForces(): void {
-    // apple velocity to position
+    // 苹果定位速度
     this.x += this.velocity.x;
     this.y += this.velocity.y;
 
-    // rotate
+    // 旋转
     this.rotation += 0.005;
   }
 
@@ -126,14 +126,14 @@ export class Asteroid extends Phaser.GameObjects.Graphics {
   }
 
   private checkIfOffScreen(): void {
-    // horizontal check
+    // 水平的检查
     if (this.x > this.scene.sys.canvas.width + CONST.SHIP_SIZE) {
       this.x = -CONST.SHIP_SIZE;
     } else if (this.x < -CONST.SHIP_SIZE) {
       this.x = this.scene.sys.canvas.width + CONST.SHIP_SIZE;
     }
 
-    // vertical check
+    // 垂直的检查
     if (this.y > this.scene.sys.canvas.height + CONST.SHIP_SIZE) {
       this.y = -CONST.SHIP_SIZE;
     } else if (this.y < -CONST.SHIP_SIZE) {

@@ -9,11 +9,11 @@ export class Pipe extends Phaser.GameObjects.Image {
   constructor(params) {
     super(params.scene, params.x, params.y, params.key, params.frame);
 
-    // image
+    // 图片
     this.setScale(3);
     this.setOrigin(0, 0);
 
-    // physics
+    // 物理
     this.scene.physics.world.enable(this);
     this.body.allowGravity = false;
     this.body.setVelocityX(-200);

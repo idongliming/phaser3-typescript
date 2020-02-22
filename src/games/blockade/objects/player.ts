@@ -40,13 +40,13 @@ export class Player {
       .setOrigin(0.5, 0.5)
       .setFrame(3);
 
-    // varibles
+    // 变量
     this.direction = _direction;
     this.currentFrame = 1;
     this.flipX = false;
     this.flipY = false;
 
-    // input
+    // 输入
     this.cursors = scene.input.keyboard.createCursorKeys();
   }
 

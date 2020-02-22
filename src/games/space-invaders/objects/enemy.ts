@@ -43,7 +43,7 @@ export class Enemy extends Phaser.GameObjects.Sprite {
     this.hurtingTime = 200;
     this.isHurt = false;
 
-    // set the characteristics of the specific enemy
+    // 设定特定敌人的特性
     switch (this.enemyType) {
       case "octopus":
         this.dyingTime = 100;

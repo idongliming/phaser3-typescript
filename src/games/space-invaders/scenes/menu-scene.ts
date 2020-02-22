@@ -54,8 +54,8 @@ export class MenuScene extends Phaser.Scene {
   }
 
   /**
-   * Build-in global game data manager to exchange data between scenes.
-   * Here we initialize our variables with a key.
+   * 内置全局游戏数据管理器，在场景之间交换数据.
+   * 这里我们用一个键来初始化变量。
    */
   private initRegistry(): void {
     this.registry.set("points", 0);

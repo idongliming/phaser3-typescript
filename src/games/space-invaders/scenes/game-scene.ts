@@ -23,7 +23,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   create(): void {
-    // create game objects
+    // 创建游戏对象
     this.player = new Player({
       scene: this,
       x: this.sys.canvas.width / 2,
@@ -31,8 +31,8 @@ export class GameScene extends Phaser.Scene {
       key: "player"
     });
 
-    // if you want to make it random:
-    // let enemyTypes = ["octopus", "crab", "squid"];
+    //如果你想让它随机:
+    // 设enemyTypes =[“章鱼”、“螃蟹”、“乌贼”];
     for (let y = 0; y < 5; y++) {
       for (let x = 0; x < 10; x++) {
         let type;
@@ -43,8 +43,8 @@ export class GameScene extends Phaser.Scene {
         } else {
           type = "octopus";
         }
-        // if you want to make it random:
-        // let type = enemyTypes[Math.floor(Math.random() * enemyTypes.length)];
+        //如果你想让它随机:
+        // 设 type = enemyTypes[Math.floor(Math.random() * enemyTypes.length)];
         this.enemies.add(
           new Enemy({
             scene: this,
